@@ -1,0 +1,95 @@
+body {
+
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6; /* Light gray background */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align to the top vertically */
+    min-height: 100vh; /* Full viewport height */
+}
+
+.container {
+    background-color: #ffffff; /* White background for the main content */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%;
+    max-width: 800px; /* Max width for readability */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+h1 {
+    text-align: center;
+    color: #0056b3; /* A nice blue */
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #0056b3;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 25px;
+}
+
+h3 {
+    color: #444;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.permission-group {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.permission-group label {
+    display: block; /* Make each label take its own line */
+    margin-bottom: 8px;
+    cursor: pointer; /* Indicate it's clickable */
+    font-size: 1.1em;
+}
+
+.permission-group input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2); /* Slightly larger checkboxes */
+}
+
+.output-section p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.output-section strong {
+    color: #0056b3;
+}
+
+#symbolicOutput, #octalOutput {
+    font-weight: bold;
+    color: #e67e22; /* Orange for output */
+}
+
+#commandOutput {
+    background-color: #ecf0f1; /* Light gray for code block */
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
+    color: #2c3e50;
+    display: inline-block; /* Allows padding and background */
+    word-wrap: break-word; /* Prevents long commands from overflowing */
+}
+
+.explanation-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.explanation-section p {
+    margin-bottom: 8px;
+}

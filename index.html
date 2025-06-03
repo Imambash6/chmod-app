@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Chmod App</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <div class="container">
+        <h1>Linux Chmod Calculator</h1>
+
+        <div class="permission-section">
+            <h2>Symbolic Permissions</h2>
+            <div class="permission-group">
+                <h3>User (U)</h3>
+                <label>
+                    <input type="checkbox" data-permission-type="user" data-permission-value="4" class="permission-checkbox"> Read (r)
+                </label>
+                <label>
+                    <input type="checkbox" data-permission-type="user" data-permission-value="2" class="permission-checkbox"> Write (w)
+                </label>
+                <label>
+                    <input type="checkbox" data-permission-type="user" data-permission-value="1" class="permission-checkbox"> Execute (x)
+                </label>
+            </div>
+
+            <div class="permission-group">
+                <h3>Group (G)</h3>
+                <label>
+                    <input type="checkbox" data-permission-type="group" data-permission-value="4" class="permission-checkbox"> Read (r)
+                </label>
+                <label>
+                    <input type="checkbox" data-permission-type="group" data-permission-value="2" class="permission-checkbox"> Write (w)
+                </label>
+                <label>
+                    <input type="checkbox" data-permission-type="group" data-permission-value="1" class="permission-checkbox"> Execute (x)
+                </label>
+            </div>
+
+            <div class="permission-group">
+                <h3>Others (O)</h3>
+                <label>
+                    <input type="checkbox" data-permission-type="others" data-permission-value="4" class="permission-checkbox"> Read (r)
+                </label>
+                <label>
+                    <input type="checkbox" data-permission-type="others" data-permission-value="2" class="permission-checkbox"> Write (w)
+                </label>
+                <label>
+                    <input type="checkbox" data-permission-type="others" data-permission-value="1" class="permission-checkbox"> Execute (x)
+                </label>
+            </div>
+        </div>
+
+        <div class="output-section">
+            <h2>Results</h2>
+            <p><strong>Symbolic:</strong> <span id="symbolicOutput">---------</span></p>
+            <p><strong>Octal:</strong> <span id="octalOutput">000</span></p>
+            <p><strong>Chmod Command:</strong> <code id="commandOutput">chmod 000 filename</code></p>
+        </div>
+
+        <div class="explanation-section">
+            <h2>Understanding Permissions</h2>
+            <p><strong>Read (r / 4):</strong></p>
+            <ul>
+                <li>Files: Can view file contents.</li>
+                <li>Directories: Can list contents of the directory.</li>
+            </ul>
+            <p><strong>Write (w / 2):</strong></p>
+            <ul>
+                <li>Files: Can modify, save, or delete the file.</li>
+                <li>Directories: Can create, delete, or rename files within the directory.</li>
+            </ul>
+            <p><strong>Execute (x / 1):</strong></p>
+            <ul>
+                <li>Files: Can run the file (if it's a script or program).</li>
+                <li>Directories: Can "enter" or traverse into the directory.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script> </body>
+</html>
