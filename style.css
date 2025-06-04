@@ -1,229 +1,82 @@
-/* General Body & Typography */
+/* --- Global & Layout (Body, Container) --- */
 body {
-    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* More modern font stack */
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     background-color: #eef2f5; /* Lighter, cooler background */
     color: #34495e; /* Darker, softer text color */
     margin: 0;
-    padding: 20px;
+    padding: 0; /* Important: Remove default body padding */
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
+    flex-direction: column; /* Stack content vertically */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    /* Remove justify-content: center; and align-items: flex-start; from body
+       because .container will handle its own centering now */
 }
 
 .container {
     background-color: #ffffff;
     padding: 30px;
-    border-radius: 12px; /* Slightly more rounded corners */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
-    width: 100%;
-    max-width: 850px; /* A bit wider for content */
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Take full width of parent (body) up to max-width */
+    max-width: 850px; /* Max width for readability */
     box-sizing: border-box;
+    margin: 20px auto; /* Center the container horizontally AND provide top/bottom margin */
+    flex-grow: 1; /* Allows this content area to expand and push the footer down */
 }
 
-h1 {
-    text-align: center;
-    color: #2c3e50; /* Darker blue for headings */
-    margin-bottom: 35px;
-    font-size: 2.5em; /* Larger main title */
-    letter-spacing: -0.02em; /* Slightly tighter letter spacing */
+/* --- Footer Styling --- */
+footer {
+    text-align: center; /* Centers inline content (like your paragraphs and links) */
+    margin-top: 40px; /* Space above footer */
+    padding: 20px; /* Padding inside footer */
+    border-top: 1px solid #eee;
+    color: #777;
+    font-size: 0.9em;
+    background-color: #f8f8f8; /* A very slight background for the footer itself */
+    width: 100%; /* Make the footer span the full width of its parent (body) */
+    box-sizing: border-box; /* Include padding in the width calculation */
+    /* If you had floats on previous elements, this ensures footer is below them */
+    clear: both;
 }
 
-h2 {
-    color: #3498db; /* A vibrant blue for section headings */
-    border-bottom: 1px solid #dcdcdc; /* Lighter border */
-    padding-bottom: 12px;
-    margin-top: 35px;
-    font-size: 1.8em;
+/* Ensure paragraphs inside footer don't have conflicting alignments or floats */
+footer p {
+    margin-top: 0; /* Remove default paragraph top margin */
+    margin-bottom: 5px; /* Adjust spacing between paragraphs */
+    line-height: 1.4; /* Improve readability */
 }
 
-h3 {
-    color: #555;
-    margin-top: 25px;
-    margin-bottom: 12px;
-    font-size: 1.3em;
+footer p:last-of-type {
+    margin-bottom: 0; /* No margin below the last paragraph */
 }
 
-/* Permission Group Styling */
-.permission-group {
-    background-color: #fcfcfc; /* Even lighter background */
-    border: 1px solid #e9e9e9;
-    border-radius: 8px; /* More rounded */
-    padding: 20px;
-    margin-bottom: 25px;
+footer a {
+    color: #0056b3;
+    text-decoration: none;
+    margin: 0 8px;
+    display: inline-block; /* Allows vertical margin/padding and respects text-align */
+    transition: color 0.2s ease-in-out;
 }
 
-.permission-group label {
-    display: block;
-    margin-bottom: 12px; /* More space between checkboxes */
-    cursor: pointer;
-    font-size: 1.15em;
-    transition: color 0.2s ease-in-out; /* Smooth color transition on hover */
+footer a:hover {
+    text-decoration: underline;
+    color: #003366; /* Slightly darker blue on hover */
 }
 
-.permission-group label:hover {
-    color: #3498db; /* Highlight text on hover */
-}
-
-.permission-group input[type="checkbox"] {
-    margin-right: 12px; /* More space for checkbox */
-    transform: scale(1.3); /* Slightly larger checkboxes */
-    accent-color: #3498db; /* Change checkbox color (modern browsers) */
-}
-
-/* Output Section Styling */
-.output-section p {
-    font-size: 1.15em;
-    margin-bottom: 12px;
-}
-
-.output-section strong {
-    color: #2c3e50; /* Darker label for output */
-}
-
-#symbolicOutput, #octalOutput {
-    font-weight: bold;
-    color: #e74c3c; /* A distinct red for primary output */
-    font-size: 1.2em; /* Slightly larger output text */
-}
-
-#commandOutput {
-    background-color: #ecf0f1;
-    padding: 8px 12px; /* More padding */
-    border-radius: 6px;
-    font-family: 'Fira Code', 'Courier New', Courier, monospace; /* Consider Fira Code if user has it, or fall back */
-    color: #2c3e50;
-    display: inline-block;
-    word-wrap: break-word;
-    white-space: pre-wrap; /* Ensures command wraps correctly */
-    max-width: 100%; /* Prevents overflow */
-}
-
-/* Explanation Section */
-.explanation-section ul {
-    list-style-type: disc;
-    margin-left: 25px;
-    margin-bottom: 18px;
-    line-height: 1.6; /* Better readability */
-}
-
-.explanation-section p {
-    margin-bottom: 10px;
-    line-height: 1.5;
-}
-
-/* --- Responsive Adjustments --- */
-
-/* For screens smaller than 768px (e.g., tablets in portrait) */
-@media (max-width: 768px) {
-    .container {
-        padding: 25px; /* Reduce padding */
-        border-radius: 10px; /* Slightly less rounded */
-    }
-
-    h1 {
-        font-size: 2em; /* Smaller title */
-        margin-bottom: 25px;
-    }
-
-    h2 {
-        font-size: 1.6em; /* Smaller section headings */
-        margin-top: 30px;
-    }
-
-    h3 {
-        font-size: 1.2em;
-        margin-top: 20px;
-    }
-
-    .permission-group {
-        padding: 18px;
-        margin-bottom: 20px;
-    }
-
-    .permission-group label {
-        font-size: 1.1em;
-        margin-bottom: 10px;
-    }
-
-    .output-section p {
-        font-size: 1.05em;
-    }
-
-    #symbolicOutput, #octalOutput {
-        font-size: 1.1em;
-    }
-
-    #commandOutput {
-        padding: 7px 10px;
-        font-size: 0.95em; /* Slightly smaller font for command */
-    }
-
-    footer {
-        margin-top: 30px;
-        padding-top: 15px;
-        font-size: 0.85em;
-    }
-}
+/* --- Responsive Adjustments (ensure these are at the very bottom of your CSS) --- */
 
 /* For screens smaller than 480px (e.g., mobile phones) */
 @media (max-width: 480px) {
     body {
-        padding: 10px; /* Less padding around the whole body */
-        align-items: flex-start; /* Ensure content starts at top on small screens */
+        /* On very small screens, maybe remove some top/bottom padding from body */
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     .container {
         padding: 15px; /* Much less padding inside container */
         border-radius: 8px;
-    }
-
-    h1 {
-        font-size: 1.8em; /* Even smaller title */
-        margin-bottom: 20px;
-    }
-
-    h2 {
-        font-size: 1.4em;
-        margin-top: 25px;
-    }
-
-    h3 {
-        font-size: 1.1em;
-        margin-top: 15px;
-    }
-
-    .permission-group {
-        padding: 15px;
-        margin-bottom: 15px;
-    }
-
-    .permission-group label {
-        font-size: 1em;
-        margin-bottom: 8px;
-    }
-
-    .permission-group input[type="checkbox"] {
-        transform: scale(1.1); /* Slightly smaller checkbox on mobile */
-    }
-
-    .output-section p {
-        font-size: 1em;
-    }
-
-    #symbolicOutput, #octalOutput {
-        font-size: 1em;
-    }
-
-    #commandOutput {
-        padding: 6px 8px;
-        font-size: 0.9em;
-    }
-
-    footer {
-        margin-top: 20px;
-        padding-top: 10px;
-        font-size: 0.8em;
+        margin: 10px auto; /* Reduce margin on small screens */
     }
 
     /* Optional: Make contact links stack vertically on very small screens */
@@ -231,64 +84,4 @@ h3 {
         display: block; /* Make each link take its own line */
         margin: 5px 0; /* Add vertical margin instead of horizontal */
     }
-}
-
-/* --- Footer Styling --- */
-footer {
-    text-align: center; /* This is the key for centering its inline content */
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-    color: #777;
-    font-size: 0.9em;
-    padding-bottom: 20px;
-    /* Add this if it's not already there and if you were experimenting with floats */
-    clear: both; /* Ensures footer doesn't float next to other content */
-    width: 100%; /* Ensure it takes full available width */
-    box-sizing: border-box; /* Crucial for width + padding */
-}
-
-footer p {
-    /* Ensure paragraphs inside footer don't have conflicting alignments or floats */
-    text-align: center; /* Redundant if footer is centered, but harmless */
-    margin: 0 auto; /* If you wanted to center a block-level paragraph */
-    padding: 0;
-}
-
-footer p:first-of-type {
-    margin-bottom: 5px;
-}
-
-/* Removed empty ruleset for footer p:last-of-type */
-
-footer a {
-    color: #0056b3;
-    text-decoration: none;
-    margin: 0 8px;
-    display: inline-block; /* Allows margin and padding, still respects text-align of parent */
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Also ensure your body styling is correct, especially flex properties */
-body {
-    display: flex; /* Makes body a flex container */
-    flex-direction: column; /* Stacks content vertically */
-    justify-content: space-between; /* Pushes content to top, footer to bottom */
-    min-height: 100vh; /* Ensures body takes full viewport height */
-    margin: 0; /* Remove default browser margin */
-    padding: 0; /* Remove default browser padding */
-    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: #eef2f5;
-    color: #34495e;
-}
-
-.container {
-    flex-grow: 1; /* Allows the main content container to grow and push footer down */
-    /* ... other .container styles ... */
-    width: 100%; /* Ensure it spans the full width of its parent (body) */
-    max-width: 850px;
-    margin: 20px auto; /* Center the container horizontally */
 }
