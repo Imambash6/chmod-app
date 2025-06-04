@@ -235,38 +235,60 @@ h3 {
 
 /* --- Footer Styling --- */
 footer {
-    text-align: center; /* Ensures text and inline elements are centered */
+    text-align: center; /* This is the key for centering its inline content */
     margin-top: 40px;
     padding-top: 20px;
     border-top: 1px solid #eee;
     color: #777;
     font-size: 0.9em;
-    /* Add padding-bottom to ensure enough space below content */
-    padding-bottom: 20px; 
+    padding-bottom: 20px;
+    /* Add this if it's not already there and if you were experimenting with floats */
+    clear: both; /* Ensures footer doesn't float next to other content */
+    width: 100%; /* Ensure it takes full available width */
+    box-sizing: border-box; /* Crucial for width + padding */
 }
 
-/* Style for the first paragraph in the footer (e.g., copyright) */
+footer p {
+    /* Ensure paragraphs inside footer don't have conflicting alignments or floats */
+    text-align: center; /* Redundant if footer is centered, but harmless */
+    margin: 0 auto; /* If you wanted to center a block-level paragraph */
+    padding: 0;
+}
+
 footer p:first-of-type {
-    margin-bottom: 5px; /* Reduce space after copyright line */
+    margin-bottom: 5px;
 }
 
-/* Style for the second paragraph in the footer (e.g., contact info) */
-footer p:last-of-type {
-    /* If you want links to stack on small screens, you can add: */
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: center; */
-    /* If you want them to be in a single line, default inline works. */
-}
+/* Removed empty ruleset for footer p:last-of-type */
 
 footer a {
     color: #0056b3;
     text-decoration: none;
-    margin: 0 8px; /* Increase horizontal margin between links for better spacing */
-    /* Make links inline-block if you want them to wrap nicely but still respect margin/padding */
-    display: inline-block; 
+    margin: 0 8px;
+    display: inline-block; /* Allows margin and padding, still respects text-align of parent */
 }
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* Also ensure your body styling is correct, especially flex properties */
+body {
+    display: flex; /* Makes body a flex container */
+    flex-direction: column; /* Stacks content vertically */
+    justify-content: space-between; /* Pushes content to top, footer to bottom */
+    min-height: 100vh; /* Ensures body takes full viewport height */
+    margin: 0; /* Remove default browser margin */
+    padding: 0; /* Remove default browser padding */
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #eef2f5;
+    color: #34495e;
+}
+
+.container {
+    flex-grow: 1; /* Allows the main content container to grow and push footer down */
+    /* ... other .container styles ... */
+    width: 100%; /* Ensure it spans the full width of its parent (body) */
+    max-width: 850px;
+    margin: 20px auto; /* Center the container horizontally */
 }
