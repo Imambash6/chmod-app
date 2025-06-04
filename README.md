@@ -6,6 +6,10 @@ A simple, interactive web-based calculator for Linux file permissions (`chmod`).
 - Convert symbolic permissions (rwx) to octal.
 - Generate `chmod` commands.
 - Provides explanations for read, write, and execute permissions.
+## Future Features
+- Responsive design
+- Learning resources
+- Drag-and-Drop interface
 
 ## Live Demo
 You can try the app live here: [https://imambash6.github.io/chmod-app/](https://imambash6.github.io/chmod-app/)
