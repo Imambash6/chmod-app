@@ -1,87 +1,155 @@
-/* --- Global & Layout (Body, Container) --- */
+/* style.css */
+
+/* --- General Styles --- */
 body {
-    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: #eef2f5; /* Lighter, cooler background */
-    color: #34495e; /* Darker, softer text color */
-    margin: 0;
-    padding: 0; /* Important: Remove default body padding */
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
-    min-height: 100vh; /* Ensure body takes full viewport height */
-    /* Remove justify-content: center; and align-items: flex-start; from body
-       because .container will handle its own centering now */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A more modern font */
+    line-height: 1.6;
+    background-color: #f0f2f5; /* Light greyish-blue background */
+    color: #333; /* Dark text for readability */
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
 }
 
-.container {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Take full width of parent (body) up to max-width */
-    max-width: 850px; /* Max width for readability */
-    box-sizing: border-box;
-    margin: 20px auto; /* Center the container horizontally AND provide top/bottom margin */
-    flex-grow: 1; /* Allows this content area to expand and push the footer down */
+/* --- Header Styles --- */
+header {
+    background: linear-gradient(to right, #007bff, #0056b3); /* Blue gradient */
+    color: #fff;
+    padding: 1.5rem 0; /* Increased padding */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
-/* --- Footer Styling --- */
-footer {
-    text-align: center; /* Centers inline content (like your paragraphs and links) */
-    margin-top: 40px; /* Space above footer */
-    padding: 20px; /* Padding inside footer */
-    border-top: 1px solid #eee;
-    color: #777;
-    font-size: 0.9em;
-    background-color: #f8f8f8; /* A very slight background for the footer itself */
-    width: 100%; /* Make the footer span the full width of its parent (body) */
-    box-sizing: border-box; /* Include padding in the width calculation */
-    /* If you had floats on previous elements, this ensures footer is below them */
-    clear: both;
+header h1 {
+    margin-bottom: 0.75rem; /* Adjust margin */
+    font-size: 2.5rem; /* Larger heading */
+    letter-spacing: 1px; /* Slightly spaced letters */
 }
 
-/* Ensure paragraphs inside footer don't have conflicting alignments or floats */
-footer p {
-    margin-top: 0; /* Remove default paragraph top margin */
-    margin-bottom: 5px; /* Adjust spacing between paragraphs */
-    line-height: 1.4; /* Improve readability */
-}
-
-footer p:last-of-type {
-    margin-bottom: 0; /* No margin below the last paragraph */
-}
-
-footer a {
-    color: #0056b3;
+nav a {
+    color: #e0f2f7; /* Lighter blue for links */
     text-decoration: none;
-    margin: 0 8px;
-    display: inline-block; /* Allows vertical margin/padding and respects text-align */
-    transition: color 0.2s ease-in-out;
+    margin: 0 15px; /* More spacing */
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add transform transition */
+    font-weight: bold; /* Bold links */
 }
 
-footer a:hover {
-    text-decoration: underline;
-    color: #003366; /* Slightly darker blue on hover */
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white on hover */
+    transform: translateY(-2px); /* Slight lift effect */
 }
 
-/* --- Responsive Adjustments (ensure these are at the very bottom of your CSS) --- */
+/* --- Main Container & Items --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto; /* More margin */
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* More space between items */
+    justify-content: center;
+}
 
-/* For screens smaller than 480px (e.g., mobile phones) */
-@media (max-width: 480px) {
-    body {
-        /* On very small screens, maybe remove some top/bottom padding from body */
-        padding-top: 10px;
-        padding-bottom: 10px;
+.item {
+    background-color: #ffffff; /* Pure white background for items */
+    padding: 25px; /* Increased padding */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+    flex: 1 1 320px; /* Slightly larger preferred width for items */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effects */
+}
+
+.item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.item h2 {
+    color: #007bff; /* Blue for headings */
+    margin-bottom: 10px;
+}
+
+.item p {
+    color: #555; /* Slightly lighter text for paragraphs */
+}
+
+/* --- Drop Zone Styles --- */
+.drop-zone {
+    border: 2px dashed #007bff; /* Blue dashed border */
+    background-color: #e6f7ff; /* Light blue background */
+    min-height: 180px; /* Taller drop zone */
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #007bff; /* Blue text */
+    font-size: 1.4em; /* Larger text */
+    border-radius: 12px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    flex: 1 1 320px;
+    font-weight: bold;
+}
+
+.drop-zone.dragover {
+    background-color: #d1f0d1; /* Softer green on dragover */
+    border-color: #28a745; /* Green border */
+    color: #28a745;
+}
+
+/* Styling for the item being dragged */
+.item.dragging {
+    opacity: 0.6; /* Slightly more opaque while dragging */
+    border: 2px dashed #0056b3; /* Darker blue dashed border */
+    box-shadow: 0 0 0 rgba(0,0,0,0); /* Remove shadow while dragging for cleaner look */
+}
+
+/* --- Footer Styles --- */
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    background-color: #343a40; /* Darker grey for footer */
+    color: #adb5bd; /* Lighter grey text */
+    margin-top: 40px; /* Space above footer */
+    font-size: 0.9em;
+}
+
+/* --- Media Queries (Adjusted for new layout) --- */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
     }
-
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav a {
+        margin: 8px 0;
+        padding: 6px 12px;
+    }
     .container {
-        padding: 15px; /* Much less padding inside container */
-        border-radius: 8px;
-        margin: 10px auto; /* Reduce margin on small screens */
+        padding: 15px;
+        gap: 20px;
     }
+    .item {
+        flex-basis: 100%;
+        padding: 20px;
+    }
+    .drop-zone {
+        min-height: 120px;
+        font-size: 1.2em;
+    }
+}
 
-    /* Optional: Make contact links stack vertically on very small screens */
-    footer p:last-of-type a {
-        display: block; /* Make each link take its own line */
-        margin: 5px 0; /* Add vertical margin instead of horizontal */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    .item h2 {
+        font-size: 1.3rem;
+    }
+    .item p {
+        font-size: 0.95rem;
     }
 }
