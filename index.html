@@ -59,22 +59,51 @@
         </div>
 
         <div class="explanation-section">
-            <h2>Understanding Permissions</h2>
-            <p><strong>Read (r / 4):</strong></p>
+            <h2>Understanding Linux Permissions</h2>
+
+            <p>Linux file permissions control who can read, write, or execute a file or directory. They are managed for three distinct categories of users:</p>
+
+            <h3>User (U) - The Owner</h3>
             <ul>
-                <li>Files: Can view file contents.</li>
-                <li>Directories: Can list contents of the directory.</li>
+                <li>This refers to the individual user who owns the file or directory.</li>
+                <li>When you create a new file or directory, you are typically its owner by default.</li>
+                <li>The 'User' permissions apply only to this specific owner.</li>
             </ul>
-            <p><strong>Write (w / 2):</strong></p>
+
+            <h3>Group (G) - Group Members</h3>
             <ul>
-                <li>Files: Can modify, save, or delete the file.</li>
-                <li>Directories: Can create, delete, or rename files within the directory.</li>
+                <li>This refers to a group of users defined on the system.</li>
+                <li>Users can be members of one or more groups.</li>
+                <li>The 'Group' permissions apply to all users who are members of the file's assigned group. This is useful for team projects where multiple users need similar access.</li>
             </ul>
-            <p><strong>Execute (x / 1):</strong></p>
+
+            <h3>Others (O) - Everyone Else</h3>
             <ul>
-                <li>Files: Can run the file (if it's a script or program).</li>
-                <li>Directories: Can "enter" or traverse into the directory.</li>
+                <li>This refers to all other users on the system who are not the owner and are not members of the file's assigned group.</li>
+                <li>These permissions are often the most restrictive to prevent unauthorized access by general users.</li>
             </ul>
+
+            <p>Each of these categories (User, Group, Others) can have Read, Write, and Execute permissions:</p>
+
+            <h3>Read (r / 4)</h3>
+            <ul>
+                <li><strong>For Files:</strong> Allows viewing the contents of the file. You can open and read it.</li>
+                <li><strong>For Directories:</strong> Allows listing the contents of the directory (i.e., seeing what files and subdirectories are inside).</li>
+            </ul>
+
+            <h3>Write (w / 2)</h3>
+            <ul>
+                <li><strong>For Files:</strong> Allows modifying, saving changes to, or deleting the file.</li>
+                <li><strong>For Directories:</strong> Allows creating new files or subdirectories within that directory, deleting existing files or subdirectories, and renaming files within that directory.</li>
+            </ul>
+
+            <h3>Execute (x / 1)</h3>
+            <ul>
+                <li><strong>For Files:</strong> Allows running the file as a program or script. Without execute permission, you can't run a script even if you can read its contents.</li>
+                <li><strong>For Directories:</strong> Allows "entering" or traversing into the directory. Without execute permission, you cannot `cd` into the directory or access files within it, even if you have read permission to list its contents.</li>
+            </ul>
+
+            <p>The numbers (4, 2, 1) represent the octal values for each permission, which are summed up to form the 3-digit octal permission mode (e.g., rwx = 4+2+1 = 7).</p>
         </div>
     </div>
 
